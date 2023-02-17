@@ -5,6 +5,17 @@ from django.contrib.auth.forms import (
     PasswordChangeForm,
 )
 
+
 class SignupForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
-        
+    class Meta:
+        model = get_user_model()
+        fields = (
+            "username",
+            "nickname",
+            "email",
+        )
+        labels = {
+            "username": "아이디",
+            "nickname": "이름",
+            "email": "이메일",
+        }

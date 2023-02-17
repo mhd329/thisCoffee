@@ -19,8 +19,10 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("apps.index.urls")),
-    path("accounts/", include("accounts.urls")),
-    path("articles/", include("articles.urls")),
+    path("accounts/", include("apps.accounts.urls")),
+    path("articles/", include("apps.articles.urls")),
     path("tournament/", include("apps.tournament.urls")),
     path("quiz/", include("apps.quiz.urls")),
+] + [
+    path("api-auth/", include("rest_framework.urls"))  # DjangoREST
 ]

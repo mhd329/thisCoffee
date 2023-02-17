@@ -44,6 +44,7 @@ PJT_APPS = [
 
 LIBRARY_APPS = [
     "imagekit",
+    "rest_framework",
     "django_bootstrap5",
     "django_extensions",
     "django_cleanup.apps.CleanupConfig",  # 페이지에서 이미지를 삭제했을 때 서버에 남는 파일을 자동으로 지워주는 앱 https://pypi.org/project/django-cleanup/
@@ -148,4 +149,12 @@ STATIC_ROOT = "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = "apps.accounts.User"
+AUTH_USER_MODEL = "accounts.User"
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    ]
+}
