@@ -3,7 +3,7 @@ from config.settings import AUTH_USER_MODEL
 
 
 # Create your models here.
-class article(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=50)
     content = models.CharField(max_length=500)
     img = models.ImageField(

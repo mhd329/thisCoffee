@@ -17,23 +17,15 @@ class User(AbstractBaseUser):
     username = models.CharField(
         error_messages={"unique": "A user with that username already exists."},
         help_text="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
-        max_length=150,
+        max_length=20,
         unique=True,
         validators=[validators.UnicodeUsernameValidator()],
         verbose_name="아이디",
-    )
-    nickname = models.CharField(
-        max_length=20,
-        verbose_name="닉네임",
     )
     email = models.EmailField(
         blank=True,
         max_length=100,
         verbose_name="이메일",
-    )
-    stamp = models.IntegerField(
-        default=0,
-        verbose_name="출석",
     )
     created_on = models.DateTimeField(
         auto_now_add=True,
@@ -51,4 +43,3 @@ class User(AbstractBaseUser):
         db_table = "User"
 
     USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["nickname"]
